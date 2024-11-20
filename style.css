@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins";
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -79,7 +80,7 @@ body {
   transition: all 0.3s ease;
 }
 
-li::after {
+.list li::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -92,7 +93,7 @@ li::after {
   transform: scaleX(0);
 }
 
-li:hover::after {
+.list li:not(.specialities li, #spn):hover::after {
   transform: scaleX(1);
 }
 
@@ -121,7 +122,7 @@ li {
 }
 
 .h1_of_ecriture {
-  margin-top: 30px;
+  margin-top: 80px;
   font-size: 1.8rem;
 }
 
@@ -152,9 +153,11 @@ li {
   font-size: large;
   font-weight: 600;
 }
+
 p {
   padding: 50px;
 }
+
 .paragraph_of_reasherch {
   text-align: center;
   width: 100%;
@@ -218,7 +221,8 @@ p {
 
 @media (max-width: 768px) {
   .testimonial-grid {
-    grid-template-columns: 1fr; /* un fl telephone */
+    grid-template-columns: 1fr;
+    /* un fl telephone */
   }
 }
 
@@ -300,8 +304,34 @@ footer {
   transition: all 0.3s ease;
 }
 
+.about_us li {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.home li {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
 .footer-column a:hover {
   color: var(--text-color);
+}
+
+.home li:hover {
+  color: var(--text-color);
+}
+
+.about_us li:hover {
+  color: var(--text-color);
+}
+
+.big-link {
+  user-select: none;
 }
 
 a.big-link {
@@ -344,4 +374,53 @@ a.big-link {
   margin-top: 30px;
   font-size: 0.9em;
   color: #ccc;
+}
+
+.social-media a {
+  cursor: pointer;
+}
+
+.specialities {
+  list-style: none;
+  padding: 0.5rem 0;
+  position: absolute;
+  background: gray;
+  left: -96px;
+  border-radius: 9px;
+  padding-top: 10px;
+  display: none;
+}
+
+.specialities li {
+  border-bottom: 2px solid black;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.specialities li:hover {
+  background-color: #b1b2b8;
+}
+
+#M {
+  margin-left: 77px;
+}
+
+#MA {
+  margin-left: 30px;
+}
+
+#MF {
+  margin-left: 18px;
+}
+
+#AN {
+  margin-left: 37px;
+}
+
+#spn:hover .specialities {
+  display: block;
+}
+
+.specialities:not(.specialities li) {
+  opacity: 1.5;
 }
