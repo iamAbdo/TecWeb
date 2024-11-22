@@ -85,3 +85,63 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
 }
+
+/* Section 3: Certificats */
+.section-three {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: var(--body-color);
+}
+
+.certificates-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.certificate {
+    background-color: var(--text-color);
+    color: var(--body-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.certificate-image {
+    width: 100%;
+    max-width: 300px; 
+    height: auto; 
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; 
+}
+
+.certificate-image:hover {
+    transform: scale(1.05); 
+}
+
+.certificate-details {
+    padding-left: 10px;
+    text-align: left;
+}
+
+.certificate h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.certificate p {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+}
