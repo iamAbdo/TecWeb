@@ -9,6 +9,26 @@
 </head>
 
 <body>
+    
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="NASAHN ACADEMY.svg" alt="Logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about-us">About Us</a>
+            <a href="#contact-us">Contact Us</a>
+            <a href="#degrees">Degrees</a>
+            <a href="#specialities">Specialties</a>
+            <a href="#research">Research</a>
+        </div>
+        <button class="apply-button">Apply</button>
+    </header>
+
+
 
     <section class="section-one">
         <h1 class="specialty-name">Software Engineering</h1>
@@ -23,28 +43,28 @@
         <h2 class="section-title">Modules enseignés</h2>
         <div class="modules-list">
             <div class="module">
-                <p>Cryptographie Symétrique</p>
+                <p>Basics of programming languages</p>
             </div>
             <div class="module">
-                <p>Cryptographie Asymétrique</p>
+                <p>Algorithm optimization and complexity analysis</p>
             </div>
             <div class="module">
-                <p>Protocoles de Sécurité</p>
+                <p>Project management and collaborative tools</p>
             </div>
             <div class="module">
-                <p>Analyse des Menaces et Vulnérabilités</p>
+                <p>Database design and normalization</p>
             </div>
             <div class="module">
-                <p>Cryptographie Post-Quantique</p>
+                <p>Software vulnerabilities and defenses</p>
             </div>
             <div class="module">
-                <p>Sécurité des Réseaux</p>
+                <p>User interface and experience design</p>
             </div>
         </div>
     </section>
 
 
-    
+
     <section class="section-three">
         <h2 class="section-title">Certificats</h2>
         <div class="certificates-list">
@@ -96,6 +116,62 @@
                 </div>
             </div>
         </div>
+    </section>
+
+
+    <section class="section-four">
+        <h2 class="section-title">References</h2>
+        <div class="references-list">
+            <div class="reference">
+                <h3>Algorithm optimization and complexity analysis</h3>
+                <p><strong>Author:</strong> Ioannis C. Demetriou , Panos M. Pardalos</p>
+                <p><strong>Description:</strong> This book focuses on the development of approximation-related algorithms and their relevant applications.</p>
+                <a href="https://link.springer.com/book/10.1007/978-3-030-12767-1" class="reference-link">Read more</a>
+            </div>
+            <div class="reference">
+                <h3>Database design and normalization</h3>
+                <p><strong>Author:</strong> BCcampus</p>
+                <p><strong>Description:</strong> The book is relatively short compared to most database texts, even those of an introductory nature, but it's still fairly comprehensive.</p>
+                <a href="https://open.umn.edu/opentextbooks/textbooks/354" class="reference-link">Read more</a>
+            </div>
+            <div class="reference">
+                <h3>Software vulnerabilities and defenses</h3>
+                <p><strong>Source:</strong> Herbert Hugh Thompson , Scott G Chase</p>
+                <p><strong>Description:</strong> The Software Vulnerability Guide focuses on the origin of most software vulnerabilities, including the bugs in the underlying software used to develop IT infrastructures and the Internet.</p>
+                <a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/" class="reference-link">Read more</a>
+            </div>
+            <div class="reference">
+                <h3>User interface and experience design</h3>
+                <p><strong>Source:</strong> Don Norman</p>
+                <p><strong>Description:</strong> Don Norman’s seminal work will fundamentally change your perspective on the world around you. Through examining everything from doors to software, Norman reveals the power of good design and the frustration of poor design.</p>
+                <a href="https://www.interaction-design.org/literature/article/ux-design-books-guide" class="reference-link">Read more</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section-five">
+        <h2 class="section-title">Leave Your Opinion</h2>
+        <p class="section-description">We would love to hear your opinion about our Cryptography and Cyber Security program.</p>
+        <form action="#" method="POST" class="feedback-form">
+            <div class="form-grid">
+                <div>
+                    <div class="form-group">
+                        <label for="email">Your Email (optional)</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback">Your Opinion</label>
+                        <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your opinion here" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group submit-group">
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+            </div>
+        </form>
     </section>
 </body>
 
