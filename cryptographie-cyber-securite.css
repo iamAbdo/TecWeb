@@ -147,11 +147,33 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .module p {
     font-size: 1.2rem;
     font-weight: 500;
+    width: max-content;
+    position: relative;
+}
+
+.module p::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    background-color: #27274F;
+    transition: 0.3s;
+    transition-timing-function: easy-in-out;
+    transform: scaleX(0);
+}
+
+.module p:hover::after {
+    transform: scaleX(1);
 }
 
 /* Section 3: Certificats */
