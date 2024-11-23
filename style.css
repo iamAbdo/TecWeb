@@ -28,7 +28,7 @@ body {
   background-color: var(--body-color);
 }
 
-a{
+a {
   color: var(--text-color);
   text-decoration: none;
 }
@@ -78,7 +78,7 @@ a{
   border: 1px solid #30d5c8;
   cursor: pointer;
   line-height: 20px;
-  margin-right: 70px;
+  height: 40px;
   padding: 5px 10px;
   font-weight: 1000;
   font-size: large;
@@ -421,6 +421,7 @@ a.big-link {
 #NE {
   margin-left: 60px;
 }
+
 #DE {
   margin-left: 54px;
 }
@@ -431,4 +432,39 @@ a.big-link {
 
 .specialities:not(.specialities li) {
   opacity: 1.5;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-right: 30px;
+  align-items: center;
+}
+
+/* dark mode */
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--body-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#theme-switch svg {
+  fill: var(--text-color);
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+body.bluemode #theme-switch svg:first-child {
+  display: none;
+}
+
+body.bluemode #theme-switch svg:last-child {
+  display: block;
 }
