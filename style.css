@@ -468,3 +468,31 @@ body.bluemode #theme-switch svg:first-child {
 body.bluemode #theme-switch svg:last-child {
   display: block;
 }
+
+/* founders */
+.founders-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.founders {
+  display: flex;
+  justify-content: space-between;
+  width: 80%; 
+}
+
+.founder {
+  font-size: 1.5rem;
+  flex: 1;
+  padding: 0 20px;
+}
