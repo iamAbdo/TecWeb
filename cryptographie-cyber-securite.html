@@ -25,14 +25,31 @@
             <a href="#specialities">Specialties</a>
             <a href="#research">Research</a>
         </div>
-        <button class="apply-button">Apply</button>
+        <div class="buttons">
+
+            <button class="apply-button">Apply</button>
+            <button id="theme-switch" onclick="togglemode()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                    <path
+                        d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                    <path
+                        d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z" />
+                </svg>
+            </button>
+
+        </div>
     </header>
 
     <!-- Section 1: Specialty Name and Introduction -->
     <section class="section-one">
         <h1 class="specialty-name">Cyber Security</h1>
         <p class="introduction">
-            Cryptography and Cyber Security are essential fields in the protection of data and computer systems. This program focuses on the study of encryption techniques, secure protocols, and defense strategies against cyberattacks. The goal is to train experts capable of designing, analyzing, and maintaining robust security systems in an increasingly complex digital world.
+            Cryptography and Cyber Security are essential fields in the protection of data and computer systems. This
+            program focuses on the study of encryption techniques, secure protocols, and defense strategies against
+            cyberattacks. The goal is to train experts capable of designing, analyzing, and maintaining robust security
+            systems in an increasingly complex digital world.
         </p>
     </section>
 
@@ -69,28 +86,34 @@
                 <img src="src/img/certificat/certificat1.jpg" alt="Certified Ethical Hacker" class="certificate-image">
                 <div class="certificate-details">
                     <h3>Certified Ethical Hacker (CEH)</h3>
-                    <p><strong>Description:</strong> This certification demonstrates your skills in penetration testing and ethical hacking techniques.</p>
+                    <p><strong>Description:</strong> This certification demonstrates your skills in penetration testing
+                        and ethical hacking techniques.</p>
                 </div>
             </div>
             <div class="certificate">
-                <img src="src/img/certificat/certificat2.jpg" alt="Certified Information Systems Security Professional" class="certificate-image">
+                <img src="src/img/certificat/certificat2.jpg" alt="Certified Information Systems Security Professional"
+                    class="certificate-image">
                 <div class="certificate-details">
                     <h3>Certified Information Systems Security Professional (CISSP)</h3>
-                    <p><strong>Description:</strong> Recognized globally, this certification is for professionals specializing in information security.</p>
+                    <p><strong>Description:</strong> Recognized globally, this certification is for professionals
+                        specializing in information security.</p>
                 </div>
             </div>
             <div class="certificate">
                 <img src="src/img/certificat/certificat3.jpg" alt="CompTIA Security+" class="certificate-image">
                 <div class="certificate-details">
                     <h3>CompTIA Security+</h3>
-                    <p><strong>Description:</strong> This certification covers foundational knowledge in cybersecurity, including risk management and encryption.</p>
+                    <p><strong>Description:</strong> This certification covers foundational knowledge in cybersecurity,
+                        including risk management and encryption.</p>
                 </div>
             </div>
             <div class="certificate">
-                <img src="src/img/certificat/certificat4.jpg" alt="Certified Cloud Security Professional" class="certificate-image">
+                <img src="src/img/certificat/certificat4.jpg" alt="Certified Cloud Security Professional"
+                    class="certificate-image">
                 <div class="certificate-details">
                     <h3>Certified Cloud Security Professional (CCSP)</h3>
-                    <p><strong>Description:</strong> This certificate focuses on securing cloud services, architecture, and compliance.</p>
+                    <p><strong>Description:</strong> This certificate focuses on securing cloud services, architecture,
+                        and compliance.</p>
                 </div>
             </div>
         </div>
@@ -103,25 +126,31 @@
             <div class="reference">
                 <h3>Introduction to Modern Cryptography</h3>
                 <p><strong>Author:</strong> Jonathan Katz, Yehuda Lindell</p>
-                <p><strong>Description:</strong> This book provides a comprehensive introduction to modern cryptography, with a focus on both theoretical and practical aspects.</p>
+                <p><strong>Description:</strong> This book provides a comprehensive introduction to modern cryptography,
+                    with a focus on both theoretical and practical aspects.</p>
                 <a href="https://www.springer.com/gp/book/9783030612606" class="reference-link">Read more</a>
             </div>
             <div class="reference">
                 <h3>Security Engineering: A Guide to Building Dependable Distributed Systems</h3>
                 <p><strong>Author:</strong> Ross Anderson</p>
-                <p><strong>Description:</strong> A seminal work in the field of security engineering, covering a wide range of security issues from cryptography to system design.</p>
-                <a href="https://www.wiley.com/en-us/Security+Engineering%3A+A+Guide+to+Building+Dependable+Distributed+Systems%2C+3rd+Edition-p-9781119642788" class="reference-link">Read more</a>
+                <p><strong>Description:</strong> A seminal work in the field of security engineering, covering a wide
+                    range of security issues from cryptography to system design.</p>
+                <a href="https://www.wiley.com/en-us/Security+Engineering%3A+A+Guide+to+Building+Dependable+Distributed+Systems%2C+3rd+Edition-p-9781119642788"
+                    class="reference-link">Read more</a>
             </div>
             <div class="reference">
                 <h3>Certified Ethical Hacker (CEH)</h3>
                 <p><strong>Source:</strong> EC-Council</p>
-                <p><strong>Description:</strong> A globally recognized certification in ethical hacking, covering various techniques in penetration testing and vulnerability assessment.</p>
-                <a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/" class="reference-link">Read more</a>
+                <p><strong>Description:</strong> A globally recognized certification in ethical hacking, covering
+                    various techniques in penetration testing and vulnerability assessment.</p>
+                <a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/" class="reference-link">Read
+                    more</a>
             </div>
             <div class="reference">
                 <h3>CompTIA Security+ Certification</h3>
                 <p><strong>Source:</strong> CompTIA</p>
-                <p><strong>Description:</strong> This certification focuses on foundational skills in cybersecurity, covering areas like risk management, encryption, and network security.</p>
+                <p><strong>Description:</strong> This certification focuses on foundational skills in cybersecurity,
+                    covering areas like risk management, encryption, and network security.</p>
                 <a href="https://www.comptia.org/certifications/security" class="reference-link">Read more</a>
             </div>
         </div>
@@ -130,7 +159,8 @@
     <!-- Section 5: Leave Your Opinion -->
     <section class="section-five">
         <h2 class="section-title">Leave Your Opinion</h2>
-        <p class="section-description">We would love to hear your opinion about our Cryptography and Cyber Security program.</p>
+        <p class="section-description">We would love to hear your opinion about our Cryptography and Cyber Security
+            program.</p>
         <form action="#" method="POST" class="feedback-form">
             <div class="form-grid">
                 <div>
@@ -140,7 +170,8 @@
                     </div>
                     <div class="form-group">
                         <label for="feedback">Your Opinion</label>
-                        <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your opinion here" required></textarea>
+                        <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your opinion here"
+                            required></textarea>
                     </div>
                 </div>
                 <div class="form-group submit-group">
@@ -151,5 +182,11 @@
     </section>
 
 </body>
+
+<script>
+    function togglemode() {
+        document.body.classList.toggle("bluemode");
+    }
+</script>
 
 </html>
