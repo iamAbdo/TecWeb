@@ -496,7 +496,3 @@ body.bluemode #theme-switch svg:last-child {
   flex: 1;
   padding: 0 20px;
 }
-
-#theme-switch{
-  cursor: pointer;
-}
