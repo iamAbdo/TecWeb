@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign_in.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Sign In</title>
+</head>
+
+<body>
+    <div class="logIn">
+        <div class="welcome">
+            <h1 id="welcome">Welcome back</h1>
+            <h4>Please log in using your personal information to stay connected with us.</h4>
+        </div>
+        <div class="container">
+            <div class="form-container">
+                <h1>Log In</h1>
+                <form action="#" method="post">
+                    <div class="box">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+
+                    <div class="box">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <i class="uil uil-lock password "></i>
+                        <i class="uil uil-eye-slash pw_hide" id="togglePassword"></i>
+                    </div>
+
+                    <button type="submit">Log In</button>
+                    <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="logIn" id="SignUp">
+        <div class="welcome" id="signUp">
+            <h1 id="welcome">Creat Account</h1>
+            <h4>To become part of our academy, please sign up using your personal information.</h4>
+        </div>
+        <div class="container">
+            <div class="form-container">
+                <h1>Sign Up</h1>
+                <form action="#" method="post">
+                    <div class="box">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+
+                    <div class="box">
+                        <input type="password" id="password" name="password" placeholder="Creat password" required>
+                        <i class="uil uil-lock password "></i>
+                        <i class="uil uil-eye-slash pw_hide" id="togglePassword"></i>
+                    </div>
+
+                    <div class="box">
+                        <input type="password" id="password" name="password" placeholder="Confirm password" required>
+                        <i class="uil uil-lock password "></i>
+                        <i class="uil uil-eye-slash pw_hide" id="togglePassword"></i>
+                    </div>
+
+                    <button type="submit">Sign Up</button>
+                    <p class="signup-link">Already have an account? <a href="#">Log In</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="sign_in.js"></script>
+
+</html>
