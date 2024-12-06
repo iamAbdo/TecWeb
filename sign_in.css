@@ -103,7 +103,8 @@ input:focus {
 }
 
 input:focus~i.email,
-input:focus~i.password {
+input:focus~i.password,
+input:focus~i.uil.uil-user {
     color: #7d2ae8;
 }
 
