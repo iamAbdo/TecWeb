@@ -87,12 +87,12 @@ button:hover {
 .box i.email,
 .box i.password, 
 .box i.uil.uil-user{
-    left: 823px;
+    left: 23px;
     color: #707070;
 }
 
 .box i.pw_hide {
-    right: 250px;
+    right: 40px;
     font-size: 18px;
     color: #707070;
     cursor: pointer;
