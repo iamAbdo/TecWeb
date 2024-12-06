@@ -25,6 +25,7 @@ body {
     width: 100%;
     text-align: center;
     height: 440px;
+    border-radius: 0 14px 14px 0;
 }
 
 h1 {
@@ -84,7 +85,8 @@ button:hover {
 }
 
 .box i.email,
-.box i.password {
+.box i.password, 
+.box i.uil.uil-user{
     left: 823px;
     color: #707070;
 }
@@ -93,6 +95,7 @@ button:hover {
     right: 250px;
     font-size: 18px;
     color: #707070;
+    cursor: pointer;
 }
 
 input:focus {
@@ -125,8 +128,6 @@ input:focus::after {
     display: flex;
     max-width: 1200px;
     margin: 120px 70px 50px 160px;
-    background-color: #007bff;
-    height: 500px;
 }
 .welcome{
     display: flex;
@@ -134,18 +135,19 @@ input:focus::after {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-image: url(login-img.jpg);
+    background-image: url(360_F_221766665_GMi1hSvMyx3RG1PFLdYLWFBNAQ6At0A0.jpg);
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
     font-size: large;
+    border-radius: 14px 0 0 14px;
 }
 #welcome{
     color: white;
 }
 #signUp{
-    background-image: url(signup-img.jpg);
+    background-image: url(1\ \(1\).webp);
 }
 #SignUp{
     display: none;
