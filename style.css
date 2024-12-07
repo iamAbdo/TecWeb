@@ -131,7 +131,7 @@ li {
   font-size: 1.8rem;
 }
 
-.degrees,
+
 .programs,
 .trusted,
 .reasherch {
@@ -140,7 +140,7 @@ li {
   user-select: none;
 }
 
-.h1_of_degrees,
+
 .h1_of_programs,
 .h1_of_reasherch,
 .h1_of_trusted {
@@ -149,7 +149,7 @@ li {
   font-weight: 800;
 }
 
-.paragraph_of_degrees,
+
 .paragraph_of_programs {
   display: grid;
   grid-template-columns: 33% 33% 33%;
@@ -180,6 +180,92 @@ p {
 
 .h1_of_trusted {
   margin-bottom: 50px;
+}
+
+/* Degrees */
+
+.degrees {
+  width: 100%;
+  margin-top: 50px;
+  user-select: none;
+  background-color: var(--body-color);
+  padding: 40px 20px;
+}
+
+.h1_of_degrees {
+  text-align: center;
+  text-decoration-line: underline;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+.degrees_cards {
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  max-width: 850px;
+  gap: 40px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.degree_card {
+  width: 250px;
+  background-color: var(--text-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.degree_card:hover {
+  transform: translateY(-10px); 
+}
+
+.degree_image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.degree_card h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: var(--body-color);
+}
+
+.degree_card p {
+  font-size: 16px;
+  color: var(--link-color);
+  margin: 10px 0;
+  padding: 0;
+}
+
+.button_container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.more_details_button {
+  padding: 10px 20px;
+  background-color: #30d5c8;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.more_details_button:hover {
+  background-color: #1e9c8d;
+  transform: scale(1.05);
 }
 
 /* Testimunials */
