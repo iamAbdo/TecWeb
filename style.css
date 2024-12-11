@@ -137,15 +137,17 @@ li {
   font-size: 1.8rem;
 }
 
-
-.programs,
-.trusted,
-.reasherch {
+.trusted{
   width: 100%;
   margin-top: 50px;
   user-select: none;
 }
 
+.reasherch {
+  width: 90%;
+  user-select: none;
+  margin: auto;
+}
 
 .h1_of_programs,
 .h1_of_reasherch,
@@ -155,18 +157,8 @@ li {
   font-weight: 800;
 }
 
-
-.paragraph_of_programs {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  text-align: center;
-  width: 100%;
-  font-size: large;
-  font-weight: 600;
-}
-
-p {
-  padding: 50px;
+#h1_of_programs{
+  margin-top: 80px;
 }
 
 .paragraph_of_reasherch {
@@ -696,4 +688,150 @@ body.bluemode #theme-switch svg:last-child {
 .logos2-slide img {
   height: 100px;
   margin: 0 40px;
+}
+
+/*programms*/
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 20px;
+  padding: 40px;
+  width: 85%;
+  margin: auto;
+  
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; 
+  padding-bottom: 60px;
+  height: 350px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #111827;
+}
+
+.card p {
+  font-size: 1em;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.read-more-btn {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  bottom: 20px; 
+  left: 20px;
+}
+
+.read-more-btn:hover {
+  transform: translateY(-2px);
+}
+
+#he{
+ background-color: rgb(216, 225, 237);
+}
+
+#se{
+ background-color: rgb(211, 255, 211);
+}
+
+#ccs{
+ background-color: rgb(252, 220, 220);
+}
+
+#cs{
+ background-color: rgb(247, 211, 255);
+}
+
+#ne{
+ background-color: rgb(255, 215, 184);
+}
+
+#de{
+ background-color: rgb(199, 251, 253);
+}
+
+#He{
+ background-color: rgb(0, 123, 255);  
+}
+
+#Se{
+ background-color: rgb(18, 137, 18);
+}
+
+#Ccs{
+ background-color: red;
+}
+
+#Cs{
+ background-color: rgb(138, 23, 164);
+}
+
+#Ne{
+ background-color: rgb(255, 111, 0);
+}
+
+#De{
+ background-color: rgb(41, 183, 187);
+}
+
+#He:hover{
+  background-color: rgb(42, 93, 148);  
+}
+
+#Se:hover{
+  background-color: rgb(39, 85, 39);
+}
+
+#Ccs:hover{
+  background-color: rgb(170, 55, 55);
+}
+
+#Cs:hover{
+  background-color: rgb(98, 51, 108);
+}
+
+#Ne:hover{
+  background-color: rgb(144, 75, 22);
+}
+
+#De:hover{
+  background-color: rgb(30, 145, 149);
 }

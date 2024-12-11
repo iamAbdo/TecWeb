@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css" />
     <!-- Font awsome for lazy icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>NASAHN ACADEMY</title>
 </head>
 
@@ -88,57 +93,61 @@
         </div>
     </div>
 
-
-    <div class="programs" id="programs">
-        <h1 class="h1_of_programs">Programs</h1>
-        <br />
-        <div class="paragraph_of_programs">
-            <p>
-                At our academy, students in Hardware Engineering embark on a journey
-                to master the design and development of cutting-edge technology.
-                Through rigorous training and hands-on experience, they gain the
-                skills to innovate and shape the future of hardware, preparing to make
-                a meaningful impact in the tech industry.
-            </p>
-            <p>
-                At our academy, Software Engineering students dive into the art and
-                science of building impactful, innovative software. Through in-depth
-                learning and practical projects, they gain the skills to design,
-                develop, and transform digital solutions, preparing to lead in the
-                ever-evolving tech landscape.
-            </p>
-            <p>
-                At our academy, Computer Science students explore the foundations and
-                frontiers of computing. Through a rigorous curriculum and hands-on
-                problem-solving, they gain the knowledge and skills to drive
-                innovation, analyze complex systems, and shape the future of
-                technology in a data-driven world.
-            </p>
-            <p>
-                At our academy, Network Engineering students learn to design,
-                implement, and manage the critical infrastructure that powers global
-                communication. With hands-on experience and in-depth study, they
-                develop the expertise to build secure, efficient networks, preparing
-                to keep the world connected and data flowing safely.
-            </p>
-            <p>
-                At our academy, Database Engineering students delve into the art of
-                organizing, managing, and securing data. Through specialized training
-                and practical projects, they gain the expertise to design robust
-                databases that drive insights, support decision-making, and empower
-                organizations to thrive in a data-centric world.
-            </p>
-            <p>
-                At our academy, Cybersecurity students are trained to protect digital
-                landscapes against evolving threats. Through hands-on experience and
-                expert-led courses, they gain the skills to safeguard data, defend
-                systems, and ensure resilience, preparing to become the guardians of
-                today’s interconnected world.
-            </p>
+    <h1 class="h1_of_programs" id="h1_of_programs">Programs</h1>
+    <div class="grid-container">
+        <div class="card" id="he">
+            <div class="icon" style="background-color: white;"><i class="material-icons"
+                    style="font-size:44px;color:rgb(0, 123, 255)">memory</i></div>
+            <h2>Hardware Engineering</h2>
+            <p style="color: black;">Design and develop physical computing systems, from microprocessors to complete
+                computer systems. Master circuit design, embedded systems, and hardware architecture.</p>
+            <button class="read-more-btn" id="He">Read more</button>
+        </div>
+        <div class="card" id="se">
+            <div class="icon" style="background-color: white;"><i class="fa fa-code"
+                    style="font-size:36px;color:rgb(18, 137, 18)"></i></div>
+            <h2>Software Engineering</h2>
+            <p style="color: black;">Learn to design, develop, and maintain complex software systems using modern
+                programming languages and development methodologies.</p>
+            <button class="read-more-btn" id="Se">Read more</button>
+        </div>
+        <div class="card" id="ccs">
+            <div class="icon" style="background-color: white;"><i class="material-icons"
+                    style="font-size:43px;color:red">security</i></div>
+            <h2>Cryptography and Cyber Security</h2>
+            <p style="color: black;">Explore the science of protecting data, networks, and systems from digital threats.
+                Learn advanced encryption techniques and security protocols.</p>
+            <button class="read-more-btn" id="Ccs">Read more</button>
+        </div>
+        <div class="card" id="cs">
+            <div class="icon" style="background-color: white;"><i class="material-icons"
+                    style="font-size:35px;color:rgb(138, 23, 164)">laptop_windows</i></i></div>
+            <h2>Computer Science</h2>
+            <p style="color: black;">Study the theoretical foundations of computation and information processing,
+                including algorithms, data structures, and computational theory.</p>
+            <button class="read-more-btn" id="Cs">Read more</button>
+        </div>
+        <div class="card" id="ne">
+            <div class="icon" style="background-color: white;"><i class="material-icons"
+                    style="font-size:37px;color:rgb(255, 111, 0)">device_hub</i></div>
+            <h2>Network Engineering</h2>
+            <p style="color: black;">Design and implement computer networks, from local networks to global
+                infrastructure. Master protocols, security, and network management.</p>
+            <button class="read-more-btn" id="Ne">Read more</button>
+        </div>
+        <div class="card" id="de">
+            <div class="icon" style="background-color: white;"><i class="fa fa-database"
+                    style="font-size:34px;color:rgb(33, 198, 204)"></i></div>
+            <h2>Database Engineering</h2>
+            <p style="color: black;">Learn to design, implement and maintain database systems. Master data modeling,
+                query optimization, and database administration.</p>
+            <button class="read-more-btn" id="De">Read more</button>
         </div>
     </div>
+    <br><br><br><br>
     <div class="reasherch" id="reasherch">
         <h1 class="h1_of_reasherch">Research</h1>
+        <br>
         <div class="paragraph_of_reasherch">
             <p>
                 At our academy, research in tech domains is an exhilarating journey
@@ -157,7 +166,7 @@
             </p>
         </div>
     </div>
-
+    <br><br><br>
     <div class="trusted">
         <h1 class="h1_of_trusted">Trusted By</h1>
         <div class="logos">
@@ -173,27 +182,27 @@
 
     <script>
         var copy = document.querySelector(".logos-slide").cloneNode(true);
-        
-        document.querySelector(".logos").appendChild(copy); // tdir copy
+
+        document.querySelector(".logos").appendChild(copy);
     </script>
 
     <div class="trusted">
         <h1 class="h1_of_trusted">Our Partners</h1>
         <div class="logos2">
             <div class="logos2-slide">
-              <img src="oxford.webp">
-              <img src="Harvard.jpg">
-              <img src="Utoronto_coa.svg.png">
-              <img src="Sydney.jpg">
-              <img src="Northwestern_University_seal.svg.png">
+                <img src="oxford.webp">
+                <img src="Harvard.jpg">
+                <img src="Utoronto_coa.svg.png">
+                <img src="Sydney.jpg">
+                <img src="Northwestern_University_seal.svg.png">
             </div>
-          </div>
-          <script>
+        </div>
+        <script>
             var copy = document.querySelector(".logos2-slide").cloneNode(true);
             document.querySelector(".logos2").appendChild(copy);
-          </script>
+        </script>
     </div>
-    
+
 
     <div id="testimonials">
         <h1 class="h1_of_reasherch">Testimonials</h1>
