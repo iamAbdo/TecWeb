@@ -595,3 +595,105 @@ body.bluemode #theme-switch svg:last-child {
   flex: 1;
   padding: 0 20px;
 }
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: #27274f;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, #27274f);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, #27274f);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 100px;
+  margin: 0 40px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos2 {
+  overflow: hidden;
+  padding: 60px 0;
+  background: #27274f;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos2:before,
+.logos2:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos2:before {
+  left: 0;
+  background: linear-gradient(to left, #27274f);
+}
+
+.logos2:after {
+  right: 0;
+  background: linear-gradient(to right, #27274f);
+}
+
+.logos2:hover .logos2-slide {
+  animation-play-state: paused;
+}
+
+.logos2-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+.logos2-slide img {
+  height: 100px;
+  margin: 0 40px;
+}
