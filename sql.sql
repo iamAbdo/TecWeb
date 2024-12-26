@@ -1,12 +1,9 @@
 -- Table to store contact messages from students or visitors
 CREATE TABLE messages (
 id INT AUTO_INCREMENT PRIMARY KEY,
-student_id INT NULL,
 name VARCHAR(100) NOT NULL,
 email VARCHAR(100) NOT NULL,
-subject VARCHAR(255) NOT NULL,
 message TEXT NOT NULL,
-status ENUM('unread', 'read') DEFAULT 'unread',
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE SET NULL
 );
