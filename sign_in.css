@@ -136,7 +136,7 @@ input:focus::after {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-image: url(360_F_221766665_GMi1hSvMyx3RG1PFLdYLWFBNAQ6At0A0.jpg);
+    background-image: url(src/img/360_F_221766665_GMi1hSvMyx3RG1PFLdYLWFBNAQ6At0A0.jpg);
     background-size: cover;
     background-position: center;
     color: white;
@@ -148,7 +148,7 @@ input:focus::after {
     color: white;
 }
 #signUp{
-    background-image: url(1\ \(1\).webp);
+    background-image: url(src/img/1\ \(1\).webp);
 }
 #SignUp{
     display: none;
