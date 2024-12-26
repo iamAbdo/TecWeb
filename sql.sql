@@ -1,8 +1,10 @@
 -- Table to store contact messages from students or visitors
 CREATE TABLE messages (
 id INT AUTO_INCREMENT PRIMARY KEY,
+student_id INT NULL,
 name VARCHAR(100) NOT NULL,
 email VARCHAR(100) NOT NULL,
+phone VARCHAR(20),
 message TEXT NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE SET NULL
