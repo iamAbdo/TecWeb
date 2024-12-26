@@ -1,4 +1,6 @@
 <?php
+include './includes/base.php';
+
 $etudiant = $conn->query("SELECT * FROM students");
 
 // verifier si il ya des etudiants
