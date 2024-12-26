@@ -24,11 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Exécuter la requête
         if ($stmt->execute()) {
             // Message de succès
-            echo "<script>alert('Your message has been sent successfully!'); window.location.href = 'contact.html';</script>";
-        } else {
-            // Message d'erreur
-            echo "<script>alert('Error: " . $stmt->error . "');</script>";
-        }
+            header("Location: contact.html?success=message_sent");
+            exit;
+        } 
 
         // Fermer la requête préparée
         $stmt->close();
