@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+// Start session to check if the user is logged in
+session_start();
+?>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +47,17 @@
                 <li>Research</li>
             </ul>
             <div class="buttons">
-                <a href="sign_in.html"><button class="apply">Apply</button></a>
+
+                <a href="sign_in.html">
+                    <?php if (isset($_SESSION['user_name'])): ?>
+                        <!-- If logged in display name -->
+                        <button class="apply">Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></button>
+                    <?php else: ?>
+                        <!-- If not logged in show 'Apply' button -->
+                        <button class="apply">Apply</button>
+                    <?php endif; ?>
+                </a>
+
                 <button id="theme-switch" onclick="togglemode()">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
                         <path

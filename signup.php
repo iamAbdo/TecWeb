@@ -25,9 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the query
     if ($stmt->execute()) {
-        echo "Account created successfully.";
-        // redirect
-        // header("Location: login.php");
+        header("Location: sign_in.html?erreur=account_created");
         exit;
     } else {
         echo "Error: " . $stmt->error;
