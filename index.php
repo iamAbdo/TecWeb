@@ -26,7 +26,6 @@ session_start();
             <img src="src/img/NASAHN ACADEMY.svg" class="logo" />
             <ul class="list">
                 <li>Home</li>
-                <li>About Us</li>
                 <li onclick="window.location.href='contact.html';">Contact Us</li>
                 <li onclick="window.location.href='degrees.html';">Degrees</li>
                 <li id="spn">
@@ -50,8 +49,11 @@ session_start();
 
                 <a href="sign_in.html">
                     <?php if (isset($_SESSION['user_name'])): ?>
-                        <!-- If logged in display name -->
+                        <!-- If logged in, display name -->
                         <button class="apply">Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></button>
+                        <a href="logout.php" class="logout-icon">
+                            <i class="fas fa-sign-out-alt"></i> 
+                        </a>
                     <?php else: ?>
                         <!-- If not logged in show 'Apply' button -->
                         <button class="apply">Apply</button>

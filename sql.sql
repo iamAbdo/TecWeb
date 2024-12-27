@@ -33,7 +33,7 @@ FOREIGN KEY (specialty_type_id) REFERENCES specialty_types(id)
 -- Table to store types of specialties (License, Master's, PhD)
 CREATE TABLE specialty_types (
 id INT AUTO_INCREMENT PRIMARY KEY,
-type ENUM('License', 'Masters', 'PhD') NOT NULL,
+type VARCHAR(20) NOT NULL,
 duration INT NOT NULL,
 price DECIMAL(10, 2) NOT NULL
 );
