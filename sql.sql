@@ -23,19 +23,11 @@ FOREIGN KEY (specialty_id) REFERENCES specialties(id)
 
 -- Table to store different specialties offered by the university
 CREATE TABLE specialties (
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(100) NOT NULL,
-specialty_type_id INT NOT NULL,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-FOREIGN KEY (specialty_type_id) REFERENCES specialty_types(id)
-);
-
--- Table to store types of specialties (License, Master's, PhD)
-CREATE TABLE specialty_types (
-id INT AUTO_INCREMENT PRIMARY KEY,
-type VARCHAR(20) NOT NULL,
-duration INT NOT NULL,
-price DECIMAL(10, 2) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    specialty_type ENUM('License', 'Masters', 'PhD') NOT NULL,
+    description TEXT, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Table to store admin account information
