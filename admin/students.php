@@ -17,7 +17,7 @@
     <?php
     include 'includes/base.php';
 
-    $search = $_GET['search'] ? $_GET['search'] : '' ;
+    $search = $_GET['search'] ? $_GET['search'] : '';
     $specialty_filter = $_GET['specialty_id'] ? $_GET['specialty_id'] : '';
 
     // Fetch specialties for the filter
@@ -26,8 +26,9 @@
 
     // Base query
     $query = "SELECT students.*, specialties.name AS specialty_name 
-          FROM students 
-          LEFT JOIN specialties ON students.specialty_id = specialties.id";
+FROM students 
+LEFT JOIN specialties ON students.specialty_id = specialties.id";
+
     $conditions = [];
     $params = [];
     $types = '';
@@ -55,7 +56,13 @@
     $stmt = $conn->prepare($query);
 
     if (!empty($params)) {
-        $stmt->bind_param($types, ...$params);
+        // Use references for older PHP versions (prior to 5.4)
+        if (version_compare(PHP_VERSION, '5.4.0', '<')) {
+            $args = array_merge([$types], $params);
+            call_user_func_array([$stmt, 'bind_param'], $args);
+        } else {
+            $stmt->bind_param($types, ...$params);
+        }
     }
 
     $stmt->execute();
