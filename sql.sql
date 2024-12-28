@@ -39,14 +39,6 @@ email VARCHAR(100) NOT NULL UNIQUE,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Table to store partners (e.g., partner organizations or companies)
-CREATE TABLE partners (
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(255) NOT NULL,
-image VARCHAR(255) NOT NULL,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 -- Table to store modules taught in each specialty (e.g., Symmetric Cryptography)
 CREATE TABLE modules (
 id INT AUTO_INCREMENT PRIMARY KEY,
