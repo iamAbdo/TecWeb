@@ -18,50 +18,49 @@
     <?php
     include 'includes/base.php';
 
-    // delete message action
+    // Delete message action
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $id = intval($_POST['id']);
-        $stmt = $conn->prepare("DELETE FROM messages WHERE id = ?");
-        $stmt->bind_param('i', $id);
-        if ($stmt->execute()) {
+        $stmt = mysqli_prepare($conn, "DELETE FROM messages WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, 'i', $id);
+        if (mysqli_stmt_execute($stmt)) {
             echo "<script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Deleted!',
-                text: 'The message has been successfully deleted.',
-                confirmButtonText: 'OK'
-            }).then(() => {
-                window.location.href = 'messages.php';
-            });
-        </script>";
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The message has been successfully deleted.',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = 'messages.php';
+                });
+            </script>";
         } else {
             echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: 'An error occurred while deleting the message.',
-                confirmButtonText: 'OK'
-            }).then(() => {
-                window.location.href = 'messages.php';
-            });
-        </script>";
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'An error occurred while deleting the message.',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = 'messages.php';
+                });
+            </script>";
         }
-        $stmt->close();
+        mysqli_stmt_close($stmt);
     }
 
     // Fetch messages from the database
-    $search = $_GET['search'] ?? '';
-    $order_by = $_GET['order_by'] ?? 'created_at';
-    $order_dir = $_GET['order_dir'] ?? 'DESC';
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+    $order_by = isset($_GET['order_by']) ? $_GET['order_by'] : 'created_at';
+    $order_dir = isset($_GET['order_dir']) ? $_GET['order_dir'] : 'DESC';
 
     $query = "SELECT * FROM messages WHERE name LIKE ? OR email LIKE ? OR message LIKE ? ORDER BY $order_by $order_dir";
-    $stmt = $conn->prepare($query);
+    $stmt = mysqli_prepare($conn, $query);
     $search_param = "%$search%";
-    $stmt->bind_param('sss', $search_param, $search_param, $search_param);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    mysqli_stmt_bind_param($stmt, 'sss', $search_param, $search_param, $search_param);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
     ?>
-
 
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -85,6 +84,7 @@
         </aside>
 
         <!-- Main content -->
+        <!-- Main content -->
         <div class="main-content">
             <!-- Top navbar -->
             <header class="top-navbar">
@@ -100,15 +100,16 @@
                 <!-- Filters -->
                 <form method="GET" class="filters">
                     <input type="text" name="search" placeholder="Search messages..."
-                        value="<?= htmlspecialchars($search) ?>">
+                        value="<?php echo htmlspecialchars($search); ?>">
                     <select name="order_by">
-                        <option value="created_at" <?= $order_by == 'created_at' ? 'selected' : '' ?>>Time</option>
-                        <option value="name" <?= $order_by == 'name' ? 'selected' : '' ?>>Name</option>
-                        <option value="email" <?= $order_by == 'email' ? 'selected' : '' ?>>Email</option>
+                        <option value="created_at" <?php echo $order_by == 'created_at' ? 'selected' : ''; ?>>Time
+                        </option>
+                        <option value="name" <?php echo $order_by == 'name' ? 'selected' : ''; ?>>Name</option>
+                        <option value="email" <?php echo $order_by == 'email' ? 'selected' : ''; ?>>Email</option>
                     </select>
                     <select name="order_dir">
-                        <option value="ASC" <?= $order_dir == 'ASC' ? 'selected' : '' ?>>Ascending</option>
-                        <option value="DESC" <?= $order_dir == 'DESC' ? 'selected' : '' ?>>Descending</option>
+                        <option value="ASC" <?php echo $order_dir == 'ASC' ? 'selected' : ''; ?>>Ascending</option>
+                        <option value="DESC" <?php echo $order_dir == 'DESC' ? 'selected' : ''; ?>>Descending</option>
                     </select>
                     <button type="submit">Filter</button>
                 </form>
@@ -126,16 +127,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($row = $result->fetch_assoc()): ?>
+                        <?php while ($row = mysqli_fetch_assoc($result)): ?>
                             <tr>
-                                <td><?= htmlspecialchars($row['name']) ?></td>
-                                <td><?= htmlspecialchars($row['email']) ?></td>
-                                <td><?= htmlspecialchars($row['phone']) ?></td>
-                                <td><?= htmlspecialchars($row['message']) ?></td>
-                                <td><?= htmlspecialchars($row['created_at']) ?></td>
+                                <td><?php echo htmlspecialchars($row['name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['email']); ?></td>
+                                <td><?php echo htmlspecialchars($row['phone']); ?></td>
+                                <td><?php echo htmlspecialchars($row['message']); ?></td>
+                                <td><?php echo htmlspecialchars($row['created_at']); ?></td>
                                 <td>
                                     <form method="POST" action="messages.php" class="delete-form" style="display:inline;">
-                                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                         <button type="button" class="delete-btn"><i class="fas fa-trash"></i>
                                             Delete</button>
                                     </form>
@@ -149,7 +150,6 @@
     </div>
 
     <script>
-        // Add SweetAlert to delete buttons
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function () {
                 const form = this.closest('.delete-form');
