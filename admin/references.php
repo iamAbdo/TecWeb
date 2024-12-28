@@ -1,3 +1,7 @@
+<?php
+include 'includes/CheckIfLoggedIn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +58,7 @@
     }
 
     // Handle delete reference
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_reference']) ) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_reference'])) {
         $id = intval($_POST['id']);
         $stmt = mysqli_prepare($conn, "DELETE FROM reference WHERE id = ?");
         mysqli_stmt_bind_param($stmt, 'i', $id);
@@ -117,7 +121,10 @@
             <header class="top-navbar">
                 <div class="user-info">
                     <span>Welcome, Admin</span>
-                    <button>Logout</button>
+                    <form action="logout.php" method="POST">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+
                 </div>
             </header>
 

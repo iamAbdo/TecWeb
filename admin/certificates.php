@@ -1,3 +1,7 @@
+<?php
+include 'includes/CheckIfLoggedIn.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -155,7 +159,10 @@
             <header class="top-navbar">
                 <div class="user-info">
                     <span>Welcome, Admin</span>
-                    <button>Logout</button>
+                    <form action="logout.php" method="POST">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+
                 </div>
             </header>
 
