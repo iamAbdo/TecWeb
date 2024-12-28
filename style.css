@@ -546,6 +546,7 @@ a.big-link {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 #theme-switch svg {
