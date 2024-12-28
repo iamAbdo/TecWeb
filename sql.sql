@@ -58,20 +58,20 @@ FOREIGN KEY (specialty_id) REFERENCES specialties(id)
 -- Table to store certificates associated with modules (e.g., Certified Ethical Hacker)
 CREATE TABLE certificates (
 id INT AUTO_INCREMENT PRIMARY KEY,
-module_id INT NOT NULL,
+specialty_id INT NOT NULL,
 name VARCHAR(255) NOT NULL,
 description TEXT,
 image VARCHAR(255) NOT NULL,
-FOREIGN KEY (module_id) REFERENCES modules(id)
+FOREIGN KEY (specialty_id) REFERENCES specialties(id)
 );
 
 -- Table to store references (books, articles, certifications) related to modules
-CREATE TABLE references (
+CREATE TABLE reference (
 id INT AUTO_INCREMENT PRIMARY KEY,
-module_id INT NOT NULL,
+specialty_id INT NOT NULL,
 name VARCHAR(255) NOT NULL, -- Name of the reference
 author_or_source VARCHAR(255) NOT NULL, -- Author or source of the reference
 description TEXT, -- Description of the reference
 read_more_url VARCHAR(255), -- URL for more information
-FOREIGN KEY (module_id) REFERENCES modules(id) -- Foreign key to modules table
+FOREIGN KEY (specialty_id) REFERENCES specialties(id) -- Foreign key to modules table
 );
