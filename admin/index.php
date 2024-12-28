@@ -84,33 +84,35 @@ include 'includes/CheckIfLoggedIn.php';
                 </div>
             </header>
 
-            <!-- Dashboard widgets -->
-            <section class="dashboard-widgets">
-                <div class="widget">
-                    <h3>Total Students</h3>
-                    <p><?php echo number_format($total_students); ?></p>
-                </div>
-                <div class="widget">
-                    <h3>Total Specialties</h3>
-                    <p><?php echo number_format($total_specialties); ?></p>
-                </div>
-                <div class="widget">
-                    <h3>Total Messages</h3>
-                    <p><?php echo number_format($total_messages); ?></p>
-                </div>
-                <div class="widget">
-                    <h3>Total Certificates</h3>
-                    <p><?php echo number_format($total_certificates); ?></p>
-                </div>
-            </section>
+            <div class="stat-grid">
+                <!-- Dashboard widgets -->
+                <section class="dashboard-widgets">
+                    <div class="widget">
+                        <h3>Total Students</h3>
+                        <p><?php echo number_format($total_students); ?></p>
+                    </div>
+                    <div class="widget">
+                        <h3>Total Specialties</h3>
+                        <p><?php echo number_format($total_specialties); ?></p>
+                    </div>
+                    <div class="widget">
+                        <h3>Total Messages</h3>
+                        <p><?php echo number_format($total_messages); ?></p>
+                    </div>
+                    <div class="widget">
+                        <h3>Total Certificates</h3>
+                        <p><?php echo number_format($total_certificates); ?></p>
+                    </div>
+                </section>
 
-            <!-- Chart Section -->
-            <section class="chart-section">
-                <div class="chart">
-                    <h3>Students Over Time</h3>
-                    <canvas id="revenueChart"></canvas>
-                </div>
-            </section>
+                <!-- Chart Section -->
+                <section class="chart-section">
+                    <div class="chart">
+                        <h3>Students Over Time</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 
