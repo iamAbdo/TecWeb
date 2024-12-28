@@ -8,13 +8,15 @@
 }
 
 :root {
-    --link-color: #2D6CC0; /* New blue color */
+    --link-color: #2D6CC0;
+    /* New blue color */
     --text-color: white;
     --body-color: #27274F;
 }
 
 body.bluemode {
-    --link-color: #2D6CC0; /* Updated to new blue color */
+    --link-color: #2D6CC0;
+    /* Updated to new blue color */
     --text-color: #27274F;
     --body-color: #fff;
 }
@@ -101,16 +103,21 @@ body {
 }
 
 #theme-switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
     height: 50px;
     width: 50px;
     padding: 0;
     border-radius: 50%;
     background-color: var(--body-color);
+    border-color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-
 #theme-switch svg {
     fill: var(--text-color);
 }
@@ -146,7 +153,7 @@ main {
     grid-template-rows: auto 1fr;
 }
 
-.info div div{
+.info div div {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
