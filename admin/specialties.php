@@ -19,38 +19,27 @@
     <?php
     include 'includes/base.php';
 
-
     // Add Specialty Logic
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_specialty'])) {
-        $name = $conn->real_escape_string($_POST['name']);
-        $specialty_type = $conn->real_escape_string($_POST['specialty_type']);
-        $description = $conn->real_escape_string($_POST['description']);
+        $name = mysqli_real_escape_string($conn, $_POST['name']);
+        $specialty_type = mysqli_real_escape_string($conn, $_POST['specialty_type']);
+        $description = mysqli_real_escape_string($conn, $_POST['description']);
 
         $query = "INSERT INTO specialties (name, specialty_type, description) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("sss", $name, $specialty_type, $description);
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "sss", $name, $specialty_type, $description);
 
-        if ($stmt->execute()) {
+        if (mysqli_stmt_execute($stmt)) {
             echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Specialty added successfully!',
-            confirmButtonText: 'OK'
-        }).then(() => {
+            alert('Specialty added successfully!');
             window.location.href = 'specialties.php';
-        });
         </script>";
         } else {
             echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error adding specialty',
-            text: '" . htmlspecialchars($stmt->error) . "',
-            confirmButtonText: 'OK'
-        });
+            alert('Error adding specialty: " . htmlspecialchars(mysqli_error($conn)) . "');
         </script>";
         }
-        $stmt->close();
+        mysqli_stmt_close($stmt);
     }
 
     // Delete Specialty Logic
@@ -58,35 +47,25 @@
         $id = intval($_POST['id']);
 
         $query = "DELETE FROM specialties WHERE id = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $id);
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "i", $id);
 
-        if ($stmt->execute()) {
+        if (mysqli_stmt_execute($stmt)) {
             echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Specialty deleted successfully!',
-            confirmButtonText: 'OK'
-        }).then(() => {
+            alert('Specialty deleted successfully!');
             window.location.href = 'specialties.php';
-        });
         </script>";
         } else {
             echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error deleting specialty',
-            text: '" . htmlspecialchars($stmt->error) . "',
-            confirmButtonText: 'OK'
-        });
+            alert('Error deleting specialty: " . htmlspecialchars(mysqli_error($conn)) . "');
         </script>";
         }
-        $stmt->close();
+        mysqli_stmt_close($stmt);
     }
 
     // Fetch specialties
     $query = "SELECT * FROM specialties ORDER BY created_at DESC";
-    $result = $conn->query($query);
+    $result = mysqli_query($conn, $query);
     ?>
 
 
@@ -119,7 +98,6 @@
                     <button>Logout</button>
                 </div>
             </header>
-
             <div class="content">
                 <h1>Specialties</h1>
 
@@ -140,18 +118,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($row = $result->fetch_assoc()): ?>
+                        <?php while ($row = mysqli_fetch_assoc($result)): ?>
                             <tr>
-                                <td><?= htmlspecialchars($row['name']) ?></td>
-                                <td><?= htmlspecialchars($row['specialty_type']) ?></td>
-                                <td><?= htmlspecialchars($row['description']) ?></td> <!-- Display description -->
-                                <td><?= htmlspecialchars($row['created_at']) ?></td>
+                                <td><?php echo htmlspecialchars($row['name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['specialty_type']); ?></td>
+                                <td><?php echo htmlspecialchars($row['description']); ?></td>
+                                <td><?php echo htmlspecialchars($row['created_at']); ?></td>
                                 <td>
                                     <form method="POST" class="delete-form d-inline">
-                                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                                        <button type="submit" name="delete_specialty"
-                                            class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash"></i>
-                                            Delete</button>
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <button type="submit" name="delete_specialty" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
@@ -162,15 +140,15 @@
         </div>
     </div>
 
+
     <!-- Add Specialty Modal -->
-    <div class="modal fade" id="addSpecialtyModal" tabindex="-1" aria-labelledby="addSpecialtyModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="addSpecialtyModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <form method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addSpecialtyModalLabel">Add Specialty</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title">Add Specialty</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
@@ -188,7 +166,7 @@
                         <div class="mb-3">
                             <label for="specialty-description" class="form-label">Description</label>
                             <textarea name="description" id="specialty-description" class="form-control" rows="3"
-                                required></textarea> <!-- New description field -->
+                                required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -199,6 +177,7 @@
             </form>
         </div>
     </div>
+
 
     <script>
         document.querySelectorAll('.delete-btn').forEach(button => {

@@ -19,7 +19,6 @@
     <?php
     include 'includes/base.php';
 
-
     // Add Module Logic
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_module'])) {
         $specialty_id = intval($_POST['specialty_id']);
@@ -27,29 +26,31 @@
 
         $query = "INSERT INTO modules (specialty_id, name) VALUES (?, ?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("is", $specialty_id, $name);
 
-        if ($stmt->execute()) {
-            echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Module added successfully!',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            window.location.href = 'modules.php';
-        });
-        </script>";
-        } else {
-            echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error adding module',
-            text: '" . htmlspecialchars($stmt->error) . "',
-            confirmButtonText: 'OK'
-        });
-        </script>";
+        if ($stmt) {
+            $stmt->bind_param("is", $specialty_id, $name);
+            if ($stmt->execute()) {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Module added successfully!',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.location.href = 'modules.php';
+                    });
+                </script>";
+            } else {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error adding module',
+                        text: '" . htmlspecialchars($stmt->error) . "',
+                        confirmButtonText: 'OK'
+                    });
+                </script>";
+            }
+            $stmt->close();
         }
-        $stmt->close();
     }
 
     // Delete Module Logic
@@ -58,36 +59,38 @@
 
         $query = "DELETE FROM modules WHERE id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $id);
 
-        if ($stmt->execute()) {
-            echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Module deleted successfully!',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            window.location.href = 'modules.php';
-        });
-        </script>";
-        } else {
-            echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error deleting module',
-            text: '" . htmlspecialchars($stmt->error) . "',
-            confirmButtonText: 'OK'
-        });
-        </script>";
+        if ($stmt) {
+            $stmt->bind_param("i", $id);
+            if ($stmt->execute()) {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Module deleted successfully!',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.location.href = 'modules.php';
+                    });
+                </script>";
+            } else {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error deleting module',
+                        text: '" . htmlspecialchars($stmt->error) . "',
+                        confirmButtonText: 'OK'
+                    });
+                </script>";
+            }
+            $stmt->close();
         }
-        $stmt->close();
     }
 
     // Fetch modules with their specialties
     $query = "SELECT modules.id, modules.name, specialties.name AS specialty_name 
-          FROM modules 
-          JOIN specialties ON modules.specialty_id = specialties.id 
-          ORDER BY specialties.name, modules.name";
+              FROM modules 
+              JOIN specialties ON modules.specialty_id = specialties.id 
+              ORDER BY specialties.name, modules.name";
     $result = $conn->query($query);
 
     // Fetch specialties for the dropdown
@@ -146,11 +149,11 @@
                     <tbody>
                         <?php while ($row = $result->fetch_assoc()): ?>
                             <tr>
-                                <td><?= htmlspecialchars($row['name']) ?></td>
-                                <td><?= htmlspecialchars($row['specialty_name']) ?></td>
+                                <td><?php echo htmlspecialchars($row['name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['specialty_name']); ?></td>
                                 <td>
                                     <form method="POST" class="delete-form d-inline">
-                                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                         <button type="submit" name="delete_module"
                                             class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash"></i>
                                             Delete</button>
@@ -199,9 +202,9 @@
     </div>
 
     <script>
-        document.querySelectorAll('.delete-btn').forEach(button => {
+        document.querySelectorAll('.delete-btn').forEach(function (button) {
             button.addEventListener('click', function () {
-                const form = this.closest('.delete-form');
+                var form = this.closest('.delete-form');
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "This action cannot be undone.",
@@ -210,7 +213,7 @@
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, delete it!'
-                }).then(result => {
+                }).then(function (result) {
                     if (result.isConfirmed) {
                         form.submit();
                     }
