@@ -14,59 +14,87 @@
 </head>
 
 <body>
-    <?php
-    include 'includes/base.php';
+<?php
+include 'includes/base.php';
 
-    $search = isset($_GET['search']) ? $_GET['search'] : '';
-    $specialty_filter = isset($_GET['specialty_id']) ? $_GET['specialty_id'] : '';
+// Replace null coalescing operator with isset()
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$specialty_filter = isset($_GET['specialty_id']) ? $_GET['specialty_id'] : '';
 
-    // Fetch specialties for the filter
-    $specialty_query = "SELECT id, name FROM specialties";
-    $specialties_result = $conn->query($specialty_query);
+// Fetch specialties for the filter
+$specialty_query = "SELECT id, name FROM specialties";
+$specialties_result = $conn->query($specialty_query);
 
-    // Base query
-    $query = "SELECT students.*, specialties.name AS specialty_name 
-FROM students 
-LEFT JOIN specialties ON students.specialty_id = specialties.id";
+if (!$specialties_result) {
+    die("Error fetching specialties: " . $conn->error);
+}
 
-    $conditions = [];
-    $params = [];
-    $types = '';
+// Base query
+$query = "SELECT students.*, specialties.name AS specialty_name 
+          FROM students 
+          LEFT JOIN specialties ON students.specialty_id = specialties.id";
+$conditions = [];
+$params = [];
+$types = '';
 
-    // filters
-    if (!empty($search)) {
-        $conditions[] = "(students.name LIKE ? OR students.email LIKE ?)";
-        $params[] = "%$search%";
-        $params[] = "%$search%";
-        $types .= 'ss';
+// Filters
+if (!empty($search)) {
+    $conditions[] = "(students.name LIKE ? OR students.email LIKE ?)";
+    $params[] = "%$search%";
+    $params[] = "%$search%";
+    $types .= 'ss';
+}
+
+if (!empty($specialty_filter)) {
+    $conditions[] = "students.specialty_id = ?";
+    $params[] = $specialty_filter;
+    $types .= 'i';
+}
+
+if (!empty($conditions)) {
+    $query .= " WHERE " . implode(' AND ', $conditions);
+}
+
+$query .= " ORDER BY students.created_at DESC";
+
+// Prepare the SQL statement
+$stmt = $conn->prepare($query);
+if (!$stmt) {
+    die("Error preparing query: " . $conn->error . "\nQuery: " . $query);
+}
+
+// Bind parameters for older PHP versions
+if (!empty($params)) {
+    $args = array_merge([$types], $params);
+    $bind_result = call_user_func_array([$stmt, 'bind_param'], refValues($args));
+    if (!$bind_result) {
+        die("Error binding parameters: " . $stmt->error);
     }
+}
 
-    if (!empty($specialty_filter)) {
-        $conditions[] = "students.specialty_id = ?";
-        $params[] = $specialty_filter;
-        $types .= 'i';
+// Execute the statement
+if (!$stmt->execute()) {
+    die("Error executing query: " . $stmt->error);
+}
+
+// Fetch the result
+$result = $stmt->get_result();
+if (!$result) {
+    die("Error fetching result: " . $stmt->error);
+}
+
+/**
+ * Helper function to pass arguments by reference for call_user_func_array.
+ */
+function refValues($arr) {
+    $refs = [];
+    foreach ($arr as $key => $value) {
+        $refs[$key] = &$arr[$key];
     }
+    return $refs;
+}
+?>
 
-    if (!empty($conditions)) {
-        $query .= " WHERE " . implode(' AND ', $conditions);
-    }
-
-    $query .= " ORDER BY students.created_at DESC";
-
-    $stmt = $conn->prepare($query);
-
-    if (!$stmt) {
-        die("SQL Error: " . $conn->error . "<br>Query: " . $query);
-    }
-
-    if (!empty($params)) {
-        $args = array_merge([$types], $params);
-        call_user_func_array([$stmt, 'bind_param'], $args);
-    }
-
-    $stmt->execute();
-    $result = $stmt->get_result();
-    ?>
 
 
     <div class="dashboard-container">
