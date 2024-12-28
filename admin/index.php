@@ -19,6 +19,39 @@ include 'includes/CheckIfLoggedIn.php';
 
 <body>
 
+    <?php
+    include('includes/base.php');
+
+
+    $total_students_query = "SELECT COUNT(*) AS total FROM students";
+    $total_specialties_query = "SELECT COUNT(*) AS total FROM specialties";
+    $total_messages_query = "SELECT COUNT(*) AS total FROM messages";
+    $total_certificates_query = "SELECT COUNT(*) AS total FROM certificates";
+
+
+    $total_students_result = mysqli_query($conn, $total_students_query);
+    $total_specialties_result = mysqli_query($conn, $total_specialties_query);
+    $total_messages_result = mysqli_query($conn, $total_messages_query);
+    $total_certificates_result = mysqli_query($conn, $total_certificates_query);
+
+
+    $total_students = mysqli_fetch_assoc($total_students_result)['total'];
+    $total_specialties = mysqli_fetch_assoc($total_specialties_result)['total'];
+    $total_messages = mysqli_fetch_assoc($total_messages_result)['total'];
+    $total_certificates = mysqli_fetch_assoc($total_certificates_result)['total'];
+
+
+    $students_per_month_query = "SELECT MONTH(created_at) AS month, COUNT(*) AS total FROM students GROUP BY MONTH(created_at)";
+    $students_per_month_result = mysqli_query($conn, $students_per_month_query);
+
+    $months = [];
+    $student_counts = [];
+    while ($row = mysqli_fetch_assoc($students_per_month_result)) {
+        $months[] = $row['month'];
+        $student_counts[] = $row['total'];
+    }
+    ?>
+
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -48,72 +81,77 @@ include 'includes/CheckIfLoggedIn.php';
                     <form action="logout.php" method="POST">
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>
-
                 </div>
             </header>
 
             <!-- Dashboard widgets -->
             <section class="dashboard-widgets">
                 <div class="widget">
-                    <h3>Total Users</h3>
-                    <p>1,234</p>
+                    <h3>Total Students</h3>
+                    <p><?php echo number_format($total_students); ?></p>
                 </div>
                 <div class="widget">
-                    <h3>Revenue</h3>
-                    <p>$45,000</p>
+                    <h3>Total Specialties</h3>
+                    <p><?php echo number_format($total_specialties); ?></p>
                 </div>
                 <div class="widget">
-                    <h3>Orders</h3>
-                    <p>56</p>
+                    <h3>Total Messages</h3>
+                    <p><?php echo number_format($total_messages); ?></p>
                 </div>
                 <div class="widget">
-                    <h3>Active Sessions</h3>
-                    <p>12</p>
+                    <h3>Total Certificates</h3>
+                    <p><?php echo number_format($total_certificates); ?></p>
                 </div>
             </section>
 
             <!-- Chart Section -->
             <section class="chart-section">
                 <div class="chart">
-                    <h3>Revenue Over Time</h3>
+                    <h3>Students Over Time</h3>
                     <canvas id="revenueChart"></canvas>
                 </div>
-            </section>
-
-            <!-- Table Section -->
-            <section class="table-section">
-                <h3>Recent Activity</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Activity</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Created a new post</td>
-                            <td>2024-12-25</td>
-                        </tr>
-                        <tr>
-                            <td>Jane Smith</td>
-                            <td>Commented on a post</td>
-                            <td>2024-12-24</td>
-                        </tr>
-                        <tr>
-                            <td>Sam Brown</td>
-                            <td>Logged in</td>
-                            <td>2024-12-23</td>
-                        </tr>
-                    </tbody>
-                </table>
             </section>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Get the data from PHP
+        const months = <?php echo json_encode($months); ?>;
+        const studentCounts = <?php echo json_encode($student_counts); ?>;
+
+        // Sample chart using Chart.js
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        const revenueChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: months.map(month => {
+                    const date = new Date(2021, month - 1);
+                    return date.toLocaleString('default', { month: 'short' });
+                }),
+                datasets: [{
+                    label: 'Students',
+                    data: studentCounts,
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
