@@ -55,6 +55,10 @@ LEFT JOIN specialties ON students.specialty_id = specialties.id";
 
     $stmt = $conn->prepare($query);
 
+    if (!$stmt) {
+        die("SQL Error: " . $conn->error . "<br>Query: " . $query);
+    }
+
     if (!empty($params)) {
         $args = array_merge([$types], $params);
         call_user_func_array([$stmt, 'bind_param'], $args);
