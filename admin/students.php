@@ -17,8 +17,8 @@
     <?php
     include 'includes/base.php';
 
-    $search = $_GET['search'] ? $_GET['search'] : '';
-    $specialty_filter = $_GET['specialty_id'] ? $_GET['specialty_id'] : '';
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+    $specialty_filter = isset($_GET['specialty_id']) ? $_GET['specialty_id'] : '';
 
     // Fetch specialties for the filter
     $specialty_query = "SELECT id, name FROM specialties";
