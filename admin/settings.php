@@ -76,7 +76,10 @@
             <header class="top-navbar">
                 <div class="user-info">
                     <span>Welcome, Admin</span>
-                    <button>Logout</button>
+                    <form action="logout.php" method="POST">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+
                 </div>
             </header>
 
@@ -141,8 +144,8 @@
         </div>
     </div>
 
-   <!-- Add Admin Modal -->
-   <div class="modal fade" id="addAdminModal" tabindex="-1" aria-labelledby="addAdminModalLabel" aria-hidden="true">
+    <!-- Add Admin Modal -->
+    <div class="modal fade" id="addAdminModal" tabindex="-1" aria-labelledby="addAdminModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form method="POST">
                 <div class="modal-content">
