@@ -57,7 +57,7 @@ LEFT JOIN specialties ON students.specialty_id = specialties.id";
 
     if (!empty($params)) {
         // Use references for older PHP versions (prior to 5.4)
-        if (version_compare(PHP_VERSION, '5.4.0', '<')) {
+        if (version_compare(PHP_VERSION, '6.4.0', '<')) {
             $args = array_merge([$types], $params);
             call_user_func_array([$stmt, 'bind_param'], $args);
         } else {
