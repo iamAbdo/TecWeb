@@ -543,6 +543,7 @@ a.big-link {
   padding: 0;
   border-radius: 50%;
   background-color: var(--body-color);
+  border-color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
