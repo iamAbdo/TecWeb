@@ -534,6 +534,10 @@ a.big-link {
 
 /* dark mode */
 #theme-switch {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
   height: 50px;
   width: 50px;
   padding: 0;
