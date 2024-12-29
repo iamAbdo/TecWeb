@@ -416,35 +416,3 @@ body.bluemode #theme-switch svg:first-child {
 body.bluemode #theme-switch svg:last-child {
     display: block;
 }
-
-.specialities {
-    list-style: none;
-    padding: 0.5rem 0;
-    position: absolute;
-    background: gray;
-    left: -96px;
-    border-radius: 9px;
-    padding-top: 10px;
-    display: none;
-}
-
-#spn:hover .specialities {
-    display: block;
-}
-
-.list li::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    height: 1px;
-    width: 100%;
-    left: 0;
-    background-color: white;
-    transition: 0.3s;
-    transition-timing-function: easy-in-out;
-    transform: scaleX(0);
-}
-
-.list li:not(.specialities li, #spn):hover::after {
-    transform: scaleX(1);
-}
