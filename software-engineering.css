@@ -422,7 +422,7 @@ body.bluemode #theme-switch svg:last-child {
     padding: 0.5rem 0;
     position: absolute;
     background: gray;
-    left: 765px;
+    left: 940px;
     border-radius: 9px;
     padding-top: 10px;
     display: none;
@@ -435,7 +435,7 @@ body.bluemode #theme-switch svg:last-child {
     margin: auto;
     text-align: center;
     font-size: large;
-    color: black;
+    color: white;
     width: max-content;
   }
   
