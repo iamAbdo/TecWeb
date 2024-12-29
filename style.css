@@ -368,7 +368,7 @@ footer {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   margin: 0 auto;
   padding-bottom: 20px;
@@ -383,6 +383,10 @@ footer {
 
 .footer-column {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .footer-column ul {
@@ -392,6 +396,8 @@ footer {
 
 .footer-column ul li {
   margin-bottom: 5px;
+  text-align: center;
+  width: 100%;
 }
 
 .footer-column a {
