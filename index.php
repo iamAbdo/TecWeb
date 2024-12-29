@@ -73,7 +73,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <?php endforeach; ?>
                     </ul>
                 </li>
-                <li>Research</li>
             </ul>
             <div class="buttons">
 

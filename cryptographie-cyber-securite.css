@@ -44,13 +44,13 @@ body {
 .nav-links {
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
     width: 60%;
     list-style: none;
 }
 
 .nav-links a {
     position: relative;
+    cursor: pointer;
     text-decoration: none;
     color: var(--body-color);
     font-size: 16px;
@@ -422,7 +422,7 @@ body.bluemode #theme-switch svg:last-child {
     padding: 0.5rem 0;
     position: absolute;
     background: gray;
-    left: 940px;
+    left: 965px;
     border-radius: 9px;
     padding-top: 10px;
     display: none;
@@ -448,6 +448,7 @@ body.bluemode #theme-switch svg:last-child {
     color: var(--body-color);
     font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .specialities:not(.specialities li) {
