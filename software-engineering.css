@@ -29,7 +29,7 @@ body {
     width: 100%;
     height: 100vh;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -139,16 +139,16 @@ body {
 
 .certificate-image {
     width: 100%;
-    max-width: 300px; 
-    height: auto; 
+    max-width: 300px;
+    height: auto;
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .certificate-image:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .certificate-details {
@@ -199,7 +199,7 @@ body {
     padding: 30px;
 }
 
-.form-grid{
+.form-grid {
     display: grid;
     grid-template-columns: 90% 10%;
 }
@@ -216,7 +216,8 @@ body {
     margin-bottom: 5px;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
@@ -225,7 +226,8 @@ body {
     color: var(--body-color);
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     border-color: var(--link-color);
     outline: none;
 }
@@ -413,4 +415,36 @@ body.bluemode #theme-switch svg:first-child {
 
 body.bluemode #theme-switch svg:last-child {
     display: block;
+}
+
+.specialities {
+    list-style: none;
+    padding: 0.5rem 0;
+    position: absolute;
+    background: gray;
+    left: -96px;
+    border-radius: 9px;
+    padding-top: 10px;
+    display: none;
+}
+
+#spn:hover .specialities {
+    display: block;
+}
+
+.list li::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: 0.3s;
+    transition-timing-function: easy-in-out;
+    transform: scaleX(0);
+}
+
+.list li:not(.specialities li, #spn):hover::after {
+    transform: scaleX(1);
 }
