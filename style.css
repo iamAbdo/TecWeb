@@ -846,3 +846,23 @@ body.bluemode #theme-switch svg:last-child {
 #De:hover{
   background-color: rgb(30, 145, 149);
 }
+
+/* scroll */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: var(--text-color);
+  color: var(--body-color);
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  display: none; 
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999999;
+}

@@ -407,6 +407,9 @@ while ($row = mysqli_fetch_assoc($result)) {
             <p>2025 NASAHN ACADEMY. All rights reserved.</p>
         </div>
     </footer>
+
+    <button id="scrollToTopBtn"><i class="fas fa-arrow-up"></i></button>
+    <script src="scrollToTop.js"></script>
 </body>
 
 <script>
@@ -414,5 +417,6 @@ while ($row = mysqli_fetch_assoc($result)) {
         document.body.classList.toggle("bluemode");
     }
 </script>
+
 
 </html>
