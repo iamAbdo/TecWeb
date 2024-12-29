@@ -61,7 +61,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <?php endforeach; ?>
                     </ul>
                 </li>
-                <li>Search bar ...</li>
+                <li>Research</li>
             </ul>
             <div class="buttons">
 
