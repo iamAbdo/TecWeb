@@ -63,12 +63,12 @@ if ($result_references && mysqli_num_rows($result_references) > 0) {
 
     <header class="header">
         <div class="logo">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="src/img/NASAHN ACADEMY.svg" alt="Logo">
             </a>
         </div>
         <div class="nav-links">
-            <a href="#home">Home</a>
+            <a href="index.php">Home</a>
             <a href="#contact-us">Contact Us</a>
             <a href="#degrees">Degrees</a>
             <a href="#specialities">Specialties</a>
