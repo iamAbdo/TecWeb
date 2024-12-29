@@ -4,6 +4,21 @@
 <?php
 // Start session to check if the user is logged in
 session_start();
+
+include 'includes/base.php';
+
+// specialties 
+$query = "SELECT id, name FROM specialties";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+$specialties = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $specialties[] = $row;
+}
 ?>
 
 <head>
@@ -31,19 +46,22 @@ session_start();
                 <li id="spn">
                     <span>Specialities</span>
                     <ul class="specialities">
-                        <li id="HE">Hardware Engineering</li>
                         <a href="software-engeneering.html">
-                            <li id="SE">Software Engineering</li>
+                            <li id="">Software Engineering</li>
                         </a>
                         <a href="cryptographie-cyber-securite.html">
-                            <li id="CCS">Cryptographie and Cyber Security</li>
+                            <li id="">Cryptographie and Cyber Security</li>
                         </a>
-                        <li id="CS">Computer Science</li>
-                        <li id="NE">Network Engineering</li>
-                        <li id="DE">Database Engineering</li>
+                        <?php foreach ($specialties as $specialty): ?>
+                            <a href="specialty.php?id=<?php echo $specialty['id']; ?>">
+                                <li id="<?php echo 'S' . $specialty['id']; ?>">
+                                    <?php echo htmlspecialchars($specialty['name']); ?>
+                                </li>
+                            </a>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
-                <li>Research</li>
+                <li>Search bar ...</li>
             </ul>
             <div class="buttons">
 
@@ -52,7 +70,7 @@ session_start();
                         <!-- If logged in, display name -->
                         <button class="apply">Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></button>
                         <a href="logout.php" class="logout-icon">
-                            <i class="fas fa-sign-out-alt"></i> 
+                            <i class="fas fa-sign-out-alt"></i>
                         </a>
                     <?php else: ?>
                         <!-- If not logged in show 'Apply' button -->

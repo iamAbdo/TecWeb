@@ -491,6 +491,7 @@ a.big-link {
   border-bottom: 2px solid black;
   margin-bottom: 8px;
   display: block;
+  margin: auto;
 }
 
 .specialities li:hover {
@@ -606,9 +607,11 @@ body.bluemode #theme-switch svg:last-child {
 .logos {
   overflow: hidden;
   padding: 60px 0;
-  background: #27274f;
+  background: var(--body-color);
   white-space: nowrap;
   position: relative;
+  max-width: 880px;
+  margin: auto;
 }
 
 .logos:before,
@@ -657,9 +660,11 @@ body.bluemode #theme-switch svg:last-child {
 .logos2 {
   overflow: hidden;
   padding: 60px 0;
-  background: #27274f;
+  background: var(--body-color);
   white-space: nowrap;
   position: relative;
+  max-width: 880px;
+  margin: auto;
 }
 
 .logos2:before,
