@@ -46,6 +46,18 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <li id="spn">
                     <span>Specialities</span>
                     <ul class="specialities">
+                        <a href="hardware-engeneering.html">
+                            <li id="">Hardware Engineering</li>
+                        </a>
+                        <a href="computer-science.html">
+                            <li id="">Computer Science</li>
+                        </a>
+                        <a href="network-engeneering.html">
+                            <li id="">Network Engineering</li>
+                        </a>
+                        <a href="database-engeneering.html">
+                            <li id="">Database Engineering</li>
+                        </a>
                         <a href="software-engeneering.html">
                             <li id="">Software Engineering</li>
                         </a>
