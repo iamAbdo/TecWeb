@@ -40,7 +40,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <div class="nav">
             <img src="src/img/NASAHN ACADEMY.svg" class="logo" />
             <ul class="list">
-                <li>Home</li>
+                <a href="index.php"><li>Home</li></a>
                 <li onclick="window.location.href='contact.html';">Contact Us</li>
                 <li onclick="window.location.href='degrees.html';">Degrees</li>
                 <li id="spn">
