@@ -73,7 +73,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <?php endforeach; ?>
                     </ul>
                 </li>
-                <li>Research</li>
             </ul>
             <div class="buttons">
 
@@ -377,30 +376,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     <!-- Partie ta3 el footer -->
     <footer>
         <div class="footer-container">
-            <div class="footer-column">
-                <a class="big-link">Home</a>
-                <ul class="home">
-                    <li>About NASAHN</li>
-                    <li>Admissions</li>
-                    <li>Campus life</li>
-                    <li>Financial Aid</li>
-                    <li>Innovation</li>
-                    <li>Degrees</li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <a class="big-link">About Us</a>
-                <ul class="about_us">
-                    <li>Our Mission</li>
-                    <li>Our leadership</li>
-                    <li>Our History</li>
-                    <li>Accreditation</li>
-                    <li>Collaborations</li>
-                    <li>Specialities</li>
-                </ul>
-            </div>
-
             <div class="footer-column">
                 <a class="big-link">Contact Us</a>
                 <ul>
