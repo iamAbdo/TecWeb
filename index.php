@@ -148,7 +148,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h2>Hardware Engineering</h2>
             <p style="color: black;">Design and develop physical computing systems, from microprocessors to complete
                 computer systems. Master circuit design, embedded systems, and hardware architecture.</p>
-            <button class="read-more-btn" id="He">Read more</button>
+                <a href="hardware-engineering.html"><button class="read-more-btn" id="He">Read more</button></a>
         </div>
         <div class="card" id="se">
             <div class="icon" style="background-color: white;"><i class="fa fa-code"
@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h2>Software Engineering</h2>
             <p style="color: black;">Learn to design, develop, and maintain complex software systems using modern
                 programming languages and development methodologies.</p>
-            <button class="read-more-btn" id="Se">Read more</button>
+                <a href="software-engeneering.html"><button class="read-more-btn" id="Se">Read more</button></a>
         </div>
         <div class="card" id="ccs">
             <div class="icon" style="background-color: white;"><i class="material-icons"
@@ -164,7 +164,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h2>Cryptography and Cyber Security</h2>
             <p style="color: black;">Explore the science of protecting data, networks, and systems from digital threats.
                 Learn advanced encryption techniques and security protocols.</p>
-            <button class="read-more-btn" id="Ccs">Read more</button>
+                <a href="cryptographie-cyber-securite.html"><button class="read-more-btn" id="Ccs">Read more</button></a>
         </div>
         <div class="card" id="cs">
             <div class="icon" style="background-color: white;"><i class="material-icons"
@@ -172,7 +172,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h2>Computer Science</h2>
             <p style="color: black;">Study the theoretical foundations of computation and information processing,
                 including algorithms, data structures, and computational theory.</p>
-            <button class="read-more-btn" id="Cs">Read more</button>
+                <a href="computer-science.html"><button class="read-more-btn" id="Cs">Read more</button></a>
         </div>
         <div class="card" id="ne">
             <div class="icon" style="background-color: white;"><i class="material-icons"
@@ -180,7 +180,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h2>Network Engineering</h2>
             <p style="color: black;">Design and implement computer networks, from local networks to global
                 infrastructure. Master protocols, security, and network management.</p>
-            <button class="read-more-btn" id="Ne">Read more</button>
+                <a href="network-enginnering.html"><button class="read-more-btn" id="Ne">Read more</button></a>
         </div>
         <div class="card" id="de">
             <div class="icon" style="background-color: white;"><i class="fa fa-database"
@@ -188,7 +188,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h2>Database Engineering</h2>
             <p style="color: black;">Learn to design, implement and maintain database systems. Master data modeling,
                 query optimization, and database administration.</p>
-            <button class="read-more-btn" id="De">Read more</button>
+                <a href="database-engineering.html"><button class="read-more-btn" id="De">Read more</button></a>
         </div>
     </div>
     <br><br><br><br>
