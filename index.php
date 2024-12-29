@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <a href="computer-science.html">
                             <li id="">Computer Science</li>
                         </a>
-                        <a href="network-engineering.html">
+                        <a href="network-enginnering.html">
                             <li id="">Network Engineering</li>
                         </a>
                         <a href="database-engineering.html">
