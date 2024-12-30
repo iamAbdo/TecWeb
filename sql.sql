@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : dim. 29 déc. 2024 à 23:11
--- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.0.30
+-- Host: sql210.byetcluster.com
+-- Generation Time: Dec 30, 2024 at 06:12 AM
+-- Server version: 10.6.19-MariaDB
+-- PHP Version: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `nasahn`
+-- Database: `if0_38008015_nasahn`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
@@ -36,16 +37,17 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `admins`
+-- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id`, `username`, `password`, `email`, `created_at`) VALUES
-(3, 'Sofiane', '$2y$10$PzdL9OnU1FQiV74JyzuWrOwxqiwI5cX7fdoYJlg/KBNILv39kFb.u', 'sofianemohammed716@gmail.com', '2024-12-29 20:29:37');
+(3, 'Sofiane', '$2y$10$PzdL9OnU1FQiV74JyzuWrOwxqiwI5cX7fdoYJlg/KBNILv39kFb.u', 'sofianemohammed716@gmail.com', '2024-12-29 20:29:37'),
+(4, 'Admin', '$2y$10$nM7BW.8/zHug./71CyhSDOdLf5ShPPXNAsfplK9FSW0.Qbi7mWEbq', 'admin@gmail.com', '2024-12-30 11:08:32');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `certificates`
+-- Table structure for table `certificates`
 --
 
 CREATE TABLE `certificates` (
@@ -59,7 +61,7 @@ CREATE TABLE `certificates` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
@@ -73,7 +75,7 @@ CREATE TABLE `messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `messages`
+-- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`id`, `student_id`, `name`, `email`, `phone`, `message`, `created_at`) VALUES
@@ -87,7 +89,7 @@ INSERT INTO `messages` (`id`, `student_id`, `name`, `email`, `phone`, `message`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `modules`
+-- Table structure for table `modules`
 --
 
 CREATE TABLE `modules` (
@@ -99,7 +101,7 @@ CREATE TABLE `modules` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reference`
+-- Table structure for table `reference`
 --
 
 CREATE TABLE `reference` (
@@ -114,7 +116,7 @@ CREATE TABLE `reference` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `specialties`
+-- Table structure for table `specialties`
 --
 
 CREATE TABLE `specialties` (
@@ -128,7 +130,7 @@ CREATE TABLE `specialties` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `students`
+-- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
@@ -141,47 +143,47 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `students`
+-- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`id`, `name`, `email`, `password`, `specialty_id`, `created_at`) VALUES
-(2, 'John Smith', 'john.smith@email.com', '$2y$10$2DELxqNl/7lHBn5cUI5IteZamPP231KHNOdv2HIUiYn6yJl9WgFuS', 0, '2024-12-29 21:04:54'),
-(3, 'Sarah Johnson', 'sarah.johnson@email.com', '$2y$10$ZVuZWb11byV/7QxvpQVCveCKYS7MS5FbuT5Az4qOPfwaDK4eZvtkW', 0, '2024-12-29 21:05:27'),
-(4, 'Michael Brown', 'michael.brown@email.com', '$2y$10$iF.mxY2C7ZtQCgIk7EbzZO.iF5s4/u0RE5mIodK/D.wjFsemS9iMW', 0, '2024-12-29 21:06:00'),
-(5, 'Emily Davis', 'emily.davis@email.com', '$2y$10$FN1DYGMKcFTOzrWL5NzxdOSifJWbvWqPiqXahRwMiQL4F0gvOT5Xm', 0, '2024-12-29 21:06:31'),
-(6, 'David Wilson', 'david.wilson@email.com', '$2y$10$w73IVxoVJiDMxwtw0vrk7.3uehwhA6hsWyZalSy2kvT1PfpzSeiyS', 0, '2024-12-29 21:07:00'),
-(7, 'Laura Miller', 'laura.miller@email.com', '$2y$10$B3GTg5LCDrAQoMZO3EvJGuSCCLXgL96BQn0ZIA1rdyaKM5F2vpSLy', 0, '2024-12-29 21:07:32'),
-(8, 'James Moore', 'james.moore@email.com', '$2y$10$dWytXkbsX5mDxGcvAUxzteXu3NXn4fJ21kII0GCnJ/l018Wi0QoKa', 0, '2024-12-29 21:08:18'),
-(9, 'Jessica Taylor', 'jessica.taylor@email.com', '$2y$10$7DyEAa1JzlByLCZcfNIQf./uANucvd6XRzPECrcesIoJe9g.vr5hy', 0, '2024-12-29 21:09:11'),
-(10, 'William Anderson', 'william.anderson@email.com', '$2y$10$BuoI1iNITJpbRYSGcSECYOv3PVwsw3Paa73m4Mb5e6hxFinapMIo.', 0, '2024-12-29 21:09:40'),
-(11, 'Sophia Thomas', 'sophia.thomas@email.com', '$2y$10$yEzSLXtPkn0IJ4.nYGzoU.IcmJy2CXTs2S6Jfe8nT37t9.9vLIwZe', 0, '2024-12-29 21:10:20'),
-(12, 'Benjamin Jackson', 'benjamin.jackson@email.com', '$2y$10$AQ0d/1sNyl1fkIsalfHldOTI6wtNS42xc.WzOfCeuMP3xkJuYkwFu', 0, '2024-12-29 21:13:45'),
-(13, 'Ava White', 'ava.white@email.com', '$2y$10$KQk0l7cLbMunimTsYfUWVuq8JfIxazO6R74SOlsHmMHhY/HM/bkYa', 0, '2024-12-29 21:14:20'),
-(14, 'Ethan Harris', 'ethan.harris@email.com', '$2y$10$udTmzZxcgW685FTmq0b6Tu0k9iG9YsbWrhBKpZN/KBTd17I2kTguq', 0, '2024-12-29 21:14:57'),
-(15, 'Olivia Martin', 'olivia.martin@email.com', '$2y$10$eDfv1PmhxfXd/tBbJqQBneoNe5qLTwyh5wPCSZS7u6pFUosdH4KZC', 0, '2024-12-29 21:15:34'),
-(16, 'Alexander Clark', 'alexander.clark@email.com', '$2y$10$CINAP.LHTS31Kf/ezxxvKuK1/pVPDewUhZiQBRj/h.fTxUGKoFkFm', 0, '2024-12-29 21:16:01'),
-(17, 'Mia Lewis', 'mia.lewis@email.com', '$2y$10$atwoBcCjNEluRM4GTn.LA.Ye0ItJdmCZLCJ.VbKiPyJWmA0NryZH2', 0, '2024-12-29 21:16:30'),
-(18, 'Daniel Walker', 'daniel.walker@email.com', '$2y$10$x8VU1YTMemrjf3Zhmxfe8./dGNlPPNif/ZkF3cHdYzcmmcbEf37PK', 0, '2024-12-29 21:16:54'),
-(19, 'Isabella Hall', 'isabella.hall@email.com', '$2y$10$LucgEiYi/FUlvC8WRS8hMO/1sUn13Vo6lX3bWPJIhu.G4CZCVFPZ2', 0, '2024-12-29 21:17:34'),
-(20, 'Matthew Allen', 'matthew.allen@email.com', '$2y$10$giwsAANSvNOqv3VcANdiSOG7s/wSr5DVIFIz6VkxB7xlF.2iOHfqe', 0, '2024-12-29 21:18:03'),
-(21, 'Charlotte Young', 'charlotte.young@email.com', '$2y$10$cIyguyAp4LRZ6BxM43stxezuRNUYxVE3CRMRho0Jg7Ng0TZUdPQye', 0, '2024-12-29 21:18:26'),
-(22, 'Lucas King', 'lucas.king@email.com', '$2y$10$oXbqZ8ccn.alDG53HnRxou6jITmcV779c8QnAGf/mfDJp6c4k85US', 0, '2024-12-29 21:18:52'),
-(23, 'Amelia Wright', 'amelia.wright@email.com', '$2y$10$wnbFatkhCJu2nrdYkDjd.udRV9AwHusxOfSQyVjsTqHEJtGZnQg32', 0, '2024-12-29 21:19:14'),
-(24, 'Elijah Scott', 'elijah.scott@email.com', '$2y$10$hMpPb1yjKf4OeotV.r61/eum4vz1SZTL96ais0VRVkmEgaEszMxZm', 0, '2024-12-29 21:19:57'),
-(25, 'Harper Green', 'harper.green@email.com', '$2y$10$AJxDKDCziRTacyjS1zeV7uudoDTT.ei4D7D3otRg8ej0/lkLnwhha', 0, '2024-12-29 21:20:22'),
-(26, 'Jackson Adams', 'jackson.adams@email.com', '$2y$10$HF5F0kh9xDPA7H.0S5N3eOmRv7aRCJH.tlMmavmi.ZrS9zEZqiX.m', 0, '2024-12-29 21:20:47'),
-(27, 'Abigail Baker', 'abigail.baker@email.com', '$2y$10$FfEVgvQdFijAVgn0Ht5mtuAOtgXtU4nxRk23Y3aIRm4tim5zz2GWy', 0, '2024-12-29 21:21:16'),
-(28, 'Nathan Nelson', 'nathan.nelson@email.com', '$2y$10$eydNPP8MYYHff2nk24U5nu8O3p8bCElpb4ZQM5QCYmE8GNVc9f3iK', 0, '2024-12-29 21:21:51'),
-(29, 'Emily Carter', 'emily.carter@email.com', '$2y$10$NB.lQkp9zD2mqup7nKwrl.eJOT779WSTqvzlH8Wj.wH5HCx304vk6', 0, '2024-12-29 21:22:26'),
-(30, 'Grace Mitchell', 'grace.mitchell@email.com', '$2y$10$bDmqdeG.6tlUQwtcsZwSj.yj0JyBqqZWVjuX4Q6Ur7UlDYrI01GJa', 0, '2024-12-29 21:22:53'),
-(31, 'Samuel Perez', 'samuel.perez@email.com', '$2y$10$PyIvHix4koza4gib7XoV9.4rifkOiKZcD9o7QaQPyZjxgP/QYjcAK', 0, '2024-12-29 21:23:26');
+(2, 'John Smith', 'john.smith@email.com', '$2y$10$2DELxqNl/7lHBn5cUI5IteZamPP231KHNOdv2HIUiYn6yJl9WgFuS', 0, '2024-10-29 20:04:54'),
+(3, 'Sarah Johnson', 'sarah.johnson@email.com', '$2y$10$ZVuZWb11byV/7QxvpQVCveCKYS7MS5FbuT5Az4qOPfwaDK4eZvtkW', 0, '2024-10-29 20:05:27'),
+(4, 'Michael Brown', 'michael.brown@email.com', '$2y$10$iF.mxY2C7ZtQCgIk7EbzZO.iF5s4/u0RE5mIodK/D.wjFsemS9iMW', 0, '2024-09-29 20:06:00'),
+(5, 'Emily Davis', 'emily.davis@email.com', '$2y$10$FN1DYGMKcFTOzrWL5NzxdOSifJWbvWqPiqXahRwMiQL4F0gvOT5Xm', 0, '2024-09-29 20:06:31'),
+(6, 'David Wilson', 'david.wilson@email.com', '$2y$10$w73IVxoVJiDMxwtw0vrk7.3uehwhA6hsWyZalSy2kvT1PfpzSeiyS', 0, '2024-09-29 20:07:00'),
+(7, 'Laura Miller', 'laura.miller@email.com', '$2y$10$B3GTg5LCDrAQoMZO3EvJGuSCCLXgL96BQn0ZIA1rdyaKM5F2vpSLy', 0, '2024-08-29 20:07:32'),
+(8, 'James Moore', 'james.moore@email.com', '$2y$10$dWytXkbsX5mDxGcvAUxzteXu3NXn4fJ21kII0GCnJ/l018Wi0QoKa', 0, '2024-08-29 20:08:18'),
+(9, 'Jessica Taylor', 'jessica.taylor@email.com', '$2y$10$7DyEAa1JzlByLCZcfNIQf./uANucvd6XRzPECrcesIoJe9g.vr5hy', 0, '2024-08-29 20:09:11'),
+(10, 'William Anderson', 'william.anderson@email.com', '$2y$10$BuoI1iNITJpbRYSGcSECYOv3PVwsw3Paa73m4Mb5e6hxFinapMIo.', 0, '2024-08-29 20:09:40'),
+(11, 'Sophia Thomas', 'sophia.thomas@email.com', '$2y$10$yEzSLXtPkn0IJ4.nYGzoU.IcmJy2CXTs2S6Jfe8nT37t9.9vLIwZe', 0, '2024-11-29 21:10:20'),
+(12, 'Benjamin Jackson', 'benjamin.jackson@email.com', '$2y$10$AQ0d/1sNyl1fkIsalfHldOTI6wtNS42xc.WzOfCeuMP3xkJuYkwFu', 0, '2024-10-29 20:13:45'),
+(13, 'Ava White', 'ava.white@email.com', '$2y$10$KQk0l7cLbMunimTsYfUWVuq8JfIxazO6R74SOlsHmMHhY/HM/bkYa', 0, '2024-10-29 20:14:20'),
+(14, 'Ethan Harris', 'ethan.harris@email.com', '$2y$10$udTmzZxcgW685FTmq0b6Tu0k9iG9YsbWrhBKpZN/KBTd17I2kTguq', 0, '2024-10-29 20:14:57'),
+(15, 'Olivia Martin', 'olivia.martin@email.com', '$2y$10$eDfv1PmhxfXd/tBbJqQBneoNe5qLTwyh5wPCSZS7u6pFUosdH4KZC', 0, '2024-10-29 20:15:34'),
+(16, 'Alexander Clark', 'alexander.clark@email.com', '$2y$10$CINAP.LHTS31Kf/ezxxvKuK1/pVPDewUhZiQBRj/h.fTxUGKoFkFm', 0, '2024-09-29 20:16:01'),
+(17, 'Mia Lewis', 'mia.lewis@email.com', '$2y$10$atwoBcCjNEluRM4GTn.LA.Ye0ItJdmCZLCJ.VbKiPyJWmA0NryZH2', 0, '2024-09-29 20:16:30'),
+(18, 'Daniel Walker', 'daniel.walker@email.com', '$2y$10$x8VU1YTMemrjf3Zhmxfe8./dGNlPPNif/ZkF3cHdYzcmmcbEf37PK', 0, '2024-09-29 20:16:54'),
+(19, 'Isabella Hall', 'isabella.hall@email.com', '$2y$10$LucgEiYi/FUlvC8WRS8hMO/1sUn13Vo6lX3bWPJIhu.G4CZCVFPZ2', 0, '2024-09-29 20:17:34'),
+(20, 'Matthew Allen', 'matthew.allen@email.com', '$2y$10$giwsAANSvNOqv3VcANdiSOG7s/wSr5DVIFIz6VkxB7xlF.2iOHfqe', 0, '2024-09-29 20:18:03'),
+(21, 'Charlotte Young', 'charlotte.young@email.com', '$2y$10$cIyguyAp4LRZ6BxM43stxezuRNUYxVE3CRMRho0Jg7Ng0TZUdPQye', 0, '2024-09-29 20:18:26'),
+(22, 'Lucas King', 'lucas.king@email.com', '$2y$10$oXbqZ8ccn.alDG53HnRxou6jITmcV779c8QnAGf/mfDJp6c4k85US', 0, '2024-09-29 20:18:52'),
+(23, 'Amelia Wright', 'amelia.wright@email.com', '$2y$10$wnbFatkhCJu2nrdYkDjd.udRV9AwHusxOfSQyVjsTqHEJtGZnQg32', 0, '2024-09-29 20:19:14'),
+(24, 'Elijah Scott', 'elijah.scott@email.com', '$2y$10$hMpPb1yjKf4OeotV.r61/eum4vz1SZTL96ais0VRVkmEgaEszMxZm', 0, '2024-09-29 20:19:57'),
+(25, 'Harper Green', 'harper.green@email.com', '$2y$10$AJxDKDCziRTacyjS1zeV7uudoDTT.ei4D7D3otRg8ej0/lkLnwhha', 0, '2024-09-29 20:20:22'),
+(26, 'Jackson Adams', 'jackson.adams@email.com', '$2y$10$HF5F0kh9xDPA7H.0S5N3eOmRv7aRCJH.tlMmavmi.ZrS9zEZqiX.m', 0, '2024-09-29 20:20:47'),
+(27, 'Abigail Baker', 'abigail.baker@email.com', '$2y$10$FfEVgvQdFijAVgn0Ht5mtuAOtgXtU4nxRk23Y3aIRm4tim5zz2GWy', 0, '2024-09-29 20:21:16'),
+(28, 'Nathan Nelson', 'nathan.nelson@email.com', '$2y$10$eydNPP8MYYHff2nk24U5nu8O3p8bCElpb4ZQM5QCYmE8GNVc9f3iK', 0, '2024-10-29 20:21:51'),
+(29, 'Emily Carter', 'emily.carter@email.com', '$2y$10$NB.lQkp9zD2mqup7nKwrl.eJOT779WSTqvzlH8Wj.wH5HCx304vk6', 0, '2024-10-29 20:22:26'),
+(30, 'Grace Mitchell', 'grace.mitchell@email.com', '$2y$10$bDmqdeG.6tlUQwtcsZwSj.yj0JyBqqZWVjuX4Q6Ur7UlDYrI01GJa', 0, '2024-10-29 20:22:53'),
+(31, 'Samuel Perez', 'samuel.perez@email.com', '$2y$10$PyIvHix4koza4gib7XoV9.4rifkOiKZcD9o7QaQPyZjxgP/QYjcAK', 0, '2024-10-29 20:23:26');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `admins`
+-- Indexes for table `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
@@ -189,84 +191,84 @@ ALTER TABLE `admins`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Index pour la table `certificates`
+-- Indexes for table `certificates`
 --
 ALTER TABLE `certificates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `messages`
+-- Indexes for table `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `modules`
+-- Indexes for table `modules`
 --
 ALTER TABLE `modules`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `reference`
+-- Indexes for table `reference`
 --
 ALTER TABLE `reference`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `specialties`
+-- Indexes for table `specialties`
 --
 ALTER TABLE `specialties`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `students`
+-- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `admins`
+-- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `certificates`
+-- AUTO_INCREMENT for table `certificates`
 --
 ALTER TABLE `certificates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `messages`
+-- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT pour la table `modules`
+-- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `reference`
+-- AUTO_INCREMENT for table `reference`
 --
 ALTER TABLE `reference`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `specialties`
+-- AUTO_INCREMENT for table `specialties`
 --
 ALTER TABLE `specialties`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `students`
+-- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
