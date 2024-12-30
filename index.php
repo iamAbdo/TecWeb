@@ -46,7 +46,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <li id="spn">
                     <span>Specialities</span>
                     <ul class="specialities">
-                        <!-- <a href="hardware-engineering.html">
+                        <a href="hardware-engineering.html">
                             <li id="">Hardware Engineering</li>
                         </a>
                         <a href="computer-science.html">
@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </a>
                         <a href="cryptographie-cyber-securite.html">
                             <li id="">Cryptographie and Cyber Security</li>
-                        </a> -->
+                        </a>
                         <?php foreach ($specialties as $specialty): ?>
                             <a href="specialty.php?id=<?php echo $specialty['id']; ?>">
                                 <li id="<?php echo 'S' . $specialty['id']; ?>">
